@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Anglular</title>
+	</head>
+
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<div ng-app="">
+			<input type="text" ng-model="adj"placeholder="Adjective"/><br>
+			<input type="text" ng-model="noun" placeholder="Noun"/>
+			<h1>Today, I met the <span>{{adj}}</span> <span>{{noun}}</span> on the street while walking. The <span>{{adj}} {{noun}}</span> told me they liked my shirt. I was pleased.</h1>
+
+			<div ng-init="crystalGems=[{name: 'Garnet', color: '#BC177A'},
+																 {name: 'Amethyst', color: '#AB47BD'},
+																 {name: 'and Pearl', color: '#92EAD9'},
+																 {name: 'AND STEVEN!', color: '#FF6B8B'}]">
+
+				<h3>That's why the people of this world believe in:</h3>
+				<ul>
+					<li ng-repeat="gem in crystalGems | orderBy: 'name'" style="color:{{gem.color}}">{{gem.name}}</li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+
+</html>
+
+<style>
+body{
+	font-family: Century Gothic, sans-serif;
+}
+span{
+	color: #ff69b4;
+}
+</style>
