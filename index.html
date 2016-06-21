@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Anglular</title>
+		<title>Angular Cart</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+		</script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="style.css"></link>
+		<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/8bit-wonder" type="text/css"/>
 	</head>
 
-	<body>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-		<div ng-app="">
-			<input type="text" ng-model="adj"placeholder="Adjective"/><br>
-			<input type="text" ng-model="noun" placeholder="Noun"/>
-			<h1>Today, I met the <span>{{adj}}</span> <span>{{noun}}</span> on the street while walking. The <span>{{adj}} {{noun}}</span> told me they liked my shirt. I was pleased.</h1>
+	<header><h1>Add Item To Cart</h1></header>
+	<body ng-app="gemCart" ng-controller="mainCtrl as main">		
 
-			<div ng-init="crystalGems=[{name: 'Garnet', color: '#BC177A'},
-																 {name: 'Amethyst', color: '#AB47BD'},
-																 {name: 'and Pearl', color: '#92EAD9'},
-																 {name: 'AND STEVEN!', color: '#FF6B8B'}]">
+			<div class="window">
+				
+				<input type="text" ng-model="name" placeholder="Name"/><br>
+				<input type="number" ng-model="price" placeholder="Price"/><br>
+				<button ng-click="addItem()">Add Item</button>
+				<div class="cart">
+					<h2><div class="left" ng-show="items.length">Items</div><div class="right" ng-show="items.length">Prices</div></h2>
+					
+						<div class="instantiate" ng-click="removeItem(items, $index)" ng-repeat="item in items track by $index">
+							<div class="item"><span>{{item.name}}</span></div>
+							<div class="price"><span>{{item.price | currency}}</span></div> 
+							<!--div class="remove"><button ng-click="removeItem(items, $index)">x</button></div-->
+					
+					</div>
+				</div>
 
-				<h3>That's why the people of this world believe in:</h3>
-				<ul>
-					<li ng-repeat="gem in crystalGems | orderBy: 'name'" style="color:{{gem.color}}">{{gem.name}}</li>
-				</ul>
+				<h3>Total: {{total | currency}}</h3>
 			</div>
 
-		</div>
+			
+			<marquee><img src="http://vignette4.wikia.nocookie.net/undertale/images/2/20/Annoying_Dog.gif/revision/20160125092850" ng-click="annoying()" alt="This will display an animated GIF" /></marquee>
+				<!--ul>
+					<li ng-repeat="gem in crystalGems | orderBy: 'name'" style="color:{{gem.color}}">{{gem.name}}</li>
+				</ul-->
+		
 	</body>
-
 </html>
-
-<style>
-body{
-	font-family: Century Gothic, sans-serif;
-}
-span{
-	color: #ff69b4;
-}
-</style>
+<!--div ng-init="crystalGems=[{name: 'Garnet', color: '#BC177A'},
+																 {name: 'Amethyst', color: '#AB47BD'},
+																 {name: 'and Pearl', color: '#92EAD9'},
+																 {name: 'AND STEVEN!', color: '#FF6B8B'}]"-->
