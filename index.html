@@ -13,9 +13,8 @@
 	<body ng-app="gemCart" ng-controller="mainCtrl as main">		
 
 			<div class="window">
-				
-				<input type="text" ng-model="name" placeholder="Name"/><br>
-				<input type="number" ng-model="price" placeholder="Price"/><br>
+				<input  type="text" ng-model="name" placeholder="Name"/><br>
+				<input  type="number" ng-model="price" placeholder="Price"/><br>
 				<button ng-click="addItem()">Add Item</button>
 				<div class="cart">
 					<h2><div class="left" ng-show="items.length">Items</div><div class="right" ng-show="items.length">Prices</div></h2>

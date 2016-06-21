@@ -82,9 +82,23 @@ header{
 	border-color: #ffffff;
 	color: #ffffff;
 	text-align: center;
+	font-size: 25px;
 }
 
 img{
 	width: 10%;
 }
 
+.window .boxy input [type=text]{
+	background-color: black; 
+	border: 1px solid #ffffff;
+	border-radius: 1px;
+	
+}
+
+.window .boxy input [type=number]{
+	background-color: black; 
+	border: 1px solid #ffffff;
+	border-radius: 1px;
+	
+}
